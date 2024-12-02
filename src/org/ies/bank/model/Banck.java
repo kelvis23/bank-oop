@@ -21,6 +21,7 @@ public class Banck {
     public void showAccount(String iban){
         for (var account: accounts){
             if (account.getIban().equals(iban)){
+                //error en esta parte
                account.showInfo();
             }
         }
@@ -28,6 +29,7 @@ public class Banck {
     public void showCustomerAccount(String nif){
         for (var acount : accounts){
             if (acount.getCustomers().getNif().equals(nif)){
+                //error en esta parte
                 acount.showInfo();
             }
 
