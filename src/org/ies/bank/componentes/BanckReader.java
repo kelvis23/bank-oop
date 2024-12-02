@@ -15,7 +15,6 @@ public class BanckReader {
 
     }
     public Banck reader (){
-        System.out.println("imtroduce los datos del banco");
         System.out.println("introduce el nombre del banco");
         String name =scanner.nextLine();
         System.out.println("Cuentas en el banco");

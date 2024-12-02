@@ -11,7 +11,48 @@ public class Banck {
         this.name = name;
         this.accounts = accounts;
     }
+    public void showAccounts( ){
+        for(var account :accounts){
+            account.showInfo();
+            //System.out.println("IBAN "+account.getIban()+" saldo :"+account.getSaldo()+" NIF "+account.getCustomers().getNif());
+        }
 
+    }
+    public void showAccount(String iban){
+        for (var account: accounts){
+            if (account.getIban().equals(iban)){
+               account.showInfo();
+            }
+        }
+    }
+    public void showCustomerAccount(String nif){
+        for (var acount : accounts){
+            if (acount.getCustomers().getNif().equals(nif)){
+                acount.showInfo();
+            }
+
+
+        }
+
+    }
+    public  void  ingresCuenta(String iban,double saldo ){
+        for (Account account : accounts){
+            if (account.getIban().equals(iban)){
+                account.setSaldo(account.getSaldo()+saldo);
+            }
+        }
+    }
+
+    public void  sacarCuenta(String iban , double saldo ){
+        for (Account account: accounts){
+            if (account.getIban().equals(iban)){
+                account.setSaldo(account.getSaldo()-saldo);
+
+            }
+        }
+
+
+    }
     public String getName() {
         return name;
     }

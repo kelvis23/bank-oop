@@ -15,7 +15,7 @@ public class AccountReader {
     }
 
     public Account read(){
-        System.out.println("Itroduce los datos de la cuenta");
+        System.out.println("Introduce los datos de la cuenta");
         System.out.println(" Introduce el iban de la cuenta");
         String iban = scanner.nextLine();
         System.out.println(" Introduce el saldo de la cuenta");

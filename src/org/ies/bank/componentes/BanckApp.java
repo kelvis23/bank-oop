@@ -1,26 +1,27 @@
 package org.ies.bank.componentes;
 
-import org.ies.bank.model.Account;
 import org.ies.bank.model.Banck;
 
 import java.util.Scanner;
 
 public class BanckApp {
-
+   private  final  Scanner scanner;
     private final BanckReader banckReader;
     private final AccountReader accountReader;
     private final CustomerReader customerReader;
 
-    public BanckApp(BanckReader banckReader, AccountReader accountReader, CustomerReader customerReader) {
+    public BanckApp(Scanner scanner, BanckReader banckReader, AccountReader accountReader, CustomerReader customerReader) {
+        this.scanner = scanner;
         this.banckReader = banckReader;
         this.accountReader = accountReader;
         this.customerReader = customerReader;
     }
 
-    public static void Menu(Banck banck) {
+
+
+    public static void menu(Banck banck) {
         Scanner scanner = new Scanner(System.in);
         int option;
-        System.out.println("introduciendo datoss del banco");
         do {
             System.out.println("menu");
             System.out.println("1.mostrar las cuentas del banco");
@@ -32,21 +33,33 @@ public class BanckApp {
             option = scanner.nextInt();
             scanner.nextLine();
             if (option == 1) {
-                cuentasBanck(banck.getAccounts());
+                banck.showAccounts();
 
             } else if (option == 2) {
                 System.out.println("introduce el iban");
                 String iban = scanner.nextLine();
-                datosAccount(iban, banck.getAccounts());
+                banck.showAccount(iban);
 
             } else if (option == 3) {
                 System.out.println("introduce el nif del usuario ");
                 String nif =scanner.nextLine();
-                datosNAme(banck.getAccounts(),nif );
+                banck.showCustomerAccount(nif);
 
             } else if (option == 4) {
+                System.out.println("introduce el iban");
+                String iban = scanner.nextLine();
+                System.out.println("introduce la cantidad de dinero que seba ingeresar");
+                double saldo = scanner.nextDouble();
+                scanner.nextLine();
+                banck.ingresCuenta(iban,saldo);
 
             } else if (option == 5) {
+                System.out.println("introduce el iban");
+                String iban = scanner.nextLine();
+                System.out.println("introduce la cantidad de dinero que seba a sacar");
+                double saldo = scanner.nextDouble();
+                scanner.nextLine();
+                banck.sacarCuenta(iban,saldo);
 
             } else if (option == 6) {
                 System.out.println("Saliendo del menu del banco ...");
@@ -59,41 +72,7 @@ public class BanckApp {
 
     }
 
-    public static void cuentasBanck(Account[] accounts) {
-        for (Account account : accounts) {
 
-            System.out.println(account);
-        }
 
-    }
 
-    public static void datosAccount(String iban, Account[] accounts) {
-        for (Account account : accounts) {
-            if (account.getIban().equals(iban)){
-                System.out.println(account);
-            }
-        }
-
-    }
-    public static void datosNAme(Account[]accounts, String nif){
-        for (Account account:accounts){
-            if (account.getCustomers().getNif().equals(nif)){
-                System.out.println(account);
-            }
-        }
-    }
-    public static void  ingresCuent(String iban,double saldo ,Account[]accounts){
-        for (Account account : accounts){
-            if (account.getIban().equals(iban)){
-                account.setSaldo(account.getSaldo()+saldo);
-            }
-        }
-    }
-    public static void  sacarCuenta(String iban , double saldo,Account[]accounts ){
-        for (Account account: accounts){
-            if (account.getIban().equals(iban)){
-                account.setSaldo(account.getSaldo()-saldo);
-            }
-        }
-    }
 }
