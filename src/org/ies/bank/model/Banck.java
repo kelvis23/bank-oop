@@ -44,10 +44,16 @@ public class Banck {
         for (Account account : accounts) {
             if (account.getIban().equals(iban)) {
                 account.deposit(amount);
-            } else if (!iban.equals(account.getIban())) {
-                System.out.println("No se a encontrado una cuenta con este IBAN");
             }
         }
+    }
+    public Account findAccount(String iban){
+        for (Account account : accounts) {
+            if (account.getIban().equals(iban)) {
+                return account;
+            }
+        }
+        return null;
     }
 
     public void sacarCuenta(String iban, double saldo) {
@@ -60,15 +66,29 @@ public class Banck {
 
             } else  {
                 if (account.getSaldo()<saldo){
-                    System.out.println("El saldo en la cuenta es menor al saldop que intentas sacar");
+                    System.out.println("El saldo en la cuenta es menor al saldo que intentas sacar");
                 }
-
             }
         }
-
-
     }
-
+    public int numAccount (String nif ){
+        int cont =0;
+        for (var acount:accounts){
+            if (acount.getCustomers().getNif().equals(nif)){
+                cont+=1;
+            }
+        }
+        return cont;
+    }
+    public Customer ibanCliente(String iban){
+        for (var acounts : accounts){
+            if (acounts.getIban().equals(iban)){
+                Customer customers = acounts.getCustomers();
+                return customers;
+            }
+        }
+        return null;
+    }
     public String getName() {
         return name;
     }

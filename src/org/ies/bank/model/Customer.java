@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Customer {
     private String nif;
     private String name;
-    private String surname;
+    private String lastname;
 
-    public Customer(String nif, String name, String surname) {
+    public Customer(String nif, String name, String lastname) {
         this.nif = nif;
         this.name = name;
-        this.surname = surname;
+        this.lastname = lastname;
     }
 
     public String getNif() {
@@ -29,12 +29,12 @@ public class Customer {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     @Override
@@ -42,12 +42,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(nif, customer.nif) && Objects.equals(name, customer.name) && Objects.equals(surname, customer.surname);
+        return Objects.equals(nif, customer.nif) && Objects.equals(name, customer.name) && Objects.equals(lastname, customer.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nif, name, surname);
+        return Objects.hash(nif, name, lastname);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Customer {
         return "Customer{" +
                 "nif='" + nif + '\'' +
                 ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                ", surname='" + lastname + '\'' +
                 '}';
     }
 }
