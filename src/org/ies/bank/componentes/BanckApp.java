@@ -51,7 +51,7 @@ public class BanckApp {
                 System.out.println("introduce la cantidad de dinero que seba ingeresar");
                 double saldo = scanner.nextDouble();
                 scanner.nextLine();
-                banck.ingresCuenta(iban,saldo);
+                banck.deposit(iban,saldo);
 
             } else if (option == 5) {
                 System.out.println("introduce el iban");
