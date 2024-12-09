@@ -29,7 +29,8 @@ public class BanckApp {
             System.out.println("3.MOSTRAR LOS DATOS DE LAS CUENTAS DE UN CLIENTE");
             System.out.println("4.ingresar dinero en cuenta");
             System.out.println("5.sacar dinero de una cuenta");
-            System.out.println("6. salir");
+            System.out.println("6. buscar cuentas que tengan el mismo nif");
+            System.out.println("7. salir");
             option = scanner.nextInt();
             scanner.nextLine();
             if (option == 1) {
@@ -61,13 +62,18 @@ public class BanckApp {
                 scanner.nextLine();
                 banck.sacarCuenta(iban,saldo);
 
-            } else if (option == 6) {
+            } else if (option==6) {
+                System.out.println("introduce el nif del usuario ");
+                String nif =scanner.nextLine();
+                int customer = banck.countCustomerAccounts(nif);
+                System.out.println(" este nif" +nif+ " tiene "+customer+"  cuentas vinculadas");
+            } else if (option == 7) {
                 System.out.println("Saliendo del menu del banco ...");
 
             } else {
                 System.out.println("Error");
             }
-        } while (option != 6);
+        } while (option != 7);
 
 
     }

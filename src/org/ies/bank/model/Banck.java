@@ -89,6 +89,15 @@ public class Banck {
         }
         return null;
     }
+    public int countCustomerAccounts(String nif){
+        int contador = 0;
+        for (var acounts : accounts){
+            if (acounts.getCustomers().getNif().equals(nif)){
+                contador ++;
+            }
+        }
+        return contador;
+    }
     public String getName() {
         return name;
     }
