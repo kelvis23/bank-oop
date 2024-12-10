@@ -12,11 +12,12 @@ public class Banck {
         this.accounts = accounts;
     }
 
-    public void showAccounts() {
+    public Account showAccounts() {
         for (var account : accounts) {
             System.out.println("IBAN " + account.getIban() + " saldo :" + account.getSaldo() + " NIF " + account.getCustomers().getNif());
         }
 
+        return null;
     }
 
     public void showAccount(String iban) {
@@ -28,8 +29,7 @@ public class Banck {
             }
         }
     }
-
-    public void showCustomerAccount(String nif) {
+    public Account showCustomerAccount(String nif) {
         for (var account : accounts) {
             if (account.getCustomers().getNif().equals(nif)) {
                 System.out.println("IBAN " + account.getIban() + " saldo :" + account.getSaldo() + " NIF " + account.getCustomers().getNif());
@@ -38,8 +38,8 @@ public class Banck {
             }
         }
 
+        return null;
     }
-
     public void deposit(String iban, double amount) {
         for (Account account : accounts) {
             if (account.getIban().equals(iban)) {
@@ -54,12 +54,16 @@ public class Banck {
             }
         }
         return null;
+
     }
 
     public void sacarCuenta(String iban, double saldo) {
-        for (Account account : accounts) {
+
+        for (var account:accounts){
+
             if (account.getIban().equals(iban)) {
                 account.setSaldo(account.getSaldo() - saldo);
+
 
             } else if (!iban.equals(account.getIban())) {
                 System.out.println("No se a encontrado una cuenta con este IBAN");
@@ -98,6 +102,10 @@ public class Banck {
         }
         return contador;
     }
+    public void  tranferir (){
+
+    }
+
     public String getName() {
         return name;
     }
