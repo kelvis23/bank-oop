@@ -5,7 +5,7 @@ import org.ies.bank.model.Banck;
 import java.util.Scanner;
 
 public class BanckApp {
-   private  final  Scanner scanner;
+    private final Scanner scanner;
     private final BanckReader banckReader;
     private final AccountReader accountReader;
     private final CustomerReader customerReader;
@@ -16,7 +16,6 @@ public class BanckApp {
         this.accountReader = accountReader;
         this.customerReader = customerReader;
     }
-
 
 
     public static void menu(Banck banck) {
@@ -30,7 +29,8 @@ public class BanckApp {
             System.out.println("4.ingresar dinero en cuenta");
             System.out.println("5.sacar dinero de una cuenta");
             System.out.println("6. buscar cuentas que tengan el mismo nif");
-            System.out.println("7. salir");
+            System.out.println("7. tranferensia");
+            System.out.println("8. salir");
             option = scanner.nextInt();
             scanner.nextLine();
             if (option == 1) {
@@ -43,7 +43,7 @@ public class BanckApp {
 
             } else if (option == 3) {
                 System.out.println("introduce el nif del usuario ");
-                String nif =scanner.nextLine();
+                String nif = scanner.nextLine();
                 banck.showCustomerAccount(nif);
 
             } else if (option == 4) {
@@ -52,7 +52,7 @@ public class BanckApp {
                 System.out.println("introduce la cantidad de dinero que seba ingeresar");
                 double saldo = scanner.nextDouble();
                 scanner.nextLine();
-                banck.deposit(iban,saldo);
+                banck.deposit(iban, saldo);
 
             } else if (option == 5) {
                 System.out.println("introduce el iban");
@@ -60,25 +60,32 @@ public class BanckApp {
                 System.out.println("introduce la cantidad de dinero que seba a sacar");
                 double saldo = scanner.nextDouble();
                 scanner.nextLine();
-                banck.sacarCuenta(iban,saldo);
+                banck.sacarCuenta(iban, saldo);
 
-            } else if (option==6) {
+            } else if (option == 6) {
                 System.out.println("introduce el nif del usuario ");
-                String nif =scanner.nextLine();
+                String nif = scanner.nextLine();
                 int customer = banck.countCustomerAccounts(nif);
-                System.out.println(" este nif" +nif+ " tiene "+customer+"  cuentas vinculadas");
-            } else if (option == 7) {
+                System.out.println(" este nif" + nif + " tiene " + customer + "  cuentas vinculadas");
+            } else if (option ==7) {
+                System.out.println("introduce un iban");
+                String iban = scanner.nextLine();
+                System.out.println("introduce el dinero que quieres sacar de la primera cuenta");
+                double saldo =scanner.nextDouble();
+                scanner.nextLine();
+                System.out.println("Introduce el iban de la segunda cuenta");
+                String iabn2 = scanner.nextLine();
+
+            } else if (option == 8) {
                 System.out.println("Saliendo del menu del banco ...");
 
             } else {
                 System.out.println("Error");
             }
-        } while (option != 7);
+        } while (option != 8);
 
 
     }
-
-
 
 
 }
