@@ -10,7 +10,7 @@ public class BanckApp3 {
         this.banckReader = banckReader;
     }
 
-    public void run(){
+    public void run(BanckReader banckReader){
         Banck banck =banckReader.reader();
         Account account =banck.showAccounts();
         Account account1=banck.findAccount("Es0003");
@@ -22,7 +22,10 @@ public class BanckApp3 {
         if (account2!= null){
             account3.deposit(300);
         }
-
+        banck.showAccounts();
+        //me falta
+        //mostrar los datos   del titular de la cuenta Es0001
+        banck.showAccount("Es0001");
 
     }
 }

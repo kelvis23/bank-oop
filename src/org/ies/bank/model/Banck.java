@@ -33,11 +33,11 @@ public class Banck {
         for (var account : accounts) {
             if (account.getCustomers().getNif().equals(nif)) {
                 System.out.println("IBAN " + account.getIban() + " saldo :" + account.getSaldo() + " NIF " + account.getCustomers().getNif());
-            } else if (!nif.equals(account.getCustomers().getNif())) {
-                System.out.println("No se a encontrado una cuenta con este Nif");
-            }
+                return account;
+            } //else if (!nif.equals(account.getCustomers().getNif())) {
+          //      System.out.println("No se a encontrado una cuenta con este Nif");
+           // }
         }
-
         return null;
     }
     public void deposit(String iban, double amount) {

@@ -11,9 +11,10 @@ public class Main2 {
         var customerReader = new CustomerReader(scanner);
         var accountReader =new AccountReader(scanner,customerReader);
         var banckReader = new BanckReader (scanner,accountReader);
-       var banckApp2= new BanckApp(scanner,banckReader,accountReader,customerReader);
+        BanckApp2 banckApp2 =new BanckApp2(banckReader);
 
-        Banck banck = banckReader.reader();
+
+        BanckApp2.run(banckReader);
 
     }
 }
