@@ -1,22 +1,24 @@
 package org.ies.bank.componentes;
 
+import org.ies.bank.componentes.scanner.ScannerAccountReader;
+import org.ies.bank.componentes.scanner.ScannerBanckReader;
+import org.ies.bank.componentes.scanner.ScannerCustomerReader;
 import org.ies.bank.model.Banck;
 
 import java.util.Scanner;
 
 public class BanckApp {
     private final Scanner scanner;
-    private final BanckReader banckReader;
-    private final AccountReader accountReader;
-    private final CustomerReader customerReader;
+    private final ScannerBanckReader scannerBanckReader;
+    private final ScannerAccountReader scannerAccountReader;
+    private final ScannerCustomerReader scannerCustomerReader;
 
-    public BanckApp(Scanner scanner, BanckReader banckReader, AccountReader accountReader, CustomerReader customerReader) {
+    public BanckApp(Scanner scanner, ScannerBanckReader scannerBanckReader, ScannerAccountReader scannerAccountReader, ScannerCustomerReader scannerCustomerReader) {
         this.scanner = scanner;
-        this.banckReader = banckReader;
-        this.accountReader = accountReader;
-        this.customerReader = customerReader;
+        this.scannerBanckReader = scannerBanckReader;
+        this.scannerAccountReader = scannerAccountReader;
+        this.scannerCustomerReader = scannerCustomerReader;
     }
-
 
     public static void menu(Banck banck) {
         Scanner scanner = new Scanner(System.in);

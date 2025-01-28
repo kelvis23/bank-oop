@@ -1,17 +1,18 @@
 package org.ies.bank.componentes;
 
+import org.ies.bank.componentes.scanner.ScannerBanckReader;
 import org.ies.bank.model.Account;
 import org.ies.bank.model.Banck;
 
 public class BanckApp3 {
-    private  final  BanckReader banckReader;
+    private  final ScannerBanckReader scannerBanckReader;
 
-    public BanckApp3(BanckReader banckReader) {
-        this.banckReader = banckReader;
+    public BanckApp3(ScannerBanckReader scannerBanckReader) {
+        this.scannerBanckReader = scannerBanckReader;
     }
 
-    public void run(BanckReader banckReader){
-        Banck banck =banckReader.reader();
+    public void run(ScannerBanckReader scannerBanckReader){
+        Banck banck = scannerBanckReader.reader();
         Account account =banck.showAccounts();
         Account account1=banck.findAccount("Es0003");
         if (account1!=null){
