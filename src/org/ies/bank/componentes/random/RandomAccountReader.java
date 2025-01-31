@@ -1,17 +1,15 @@
 package org.ies.bank.componentes.random;
 
-import org.ies.bank.componentes.AccountReader;
-import org.ies.bank.componentes.CustomerReader;
+import org.ies.bank.componentes.Reader;
 import org.ies.bank.model.Account;
-import org.ies.bank.model.Customer;
 
 import java.util.Random;
 
-public class RandomAccountReader implements AccountReader{
+public class RandomAccountReader implements Reader<Account> {
     private final Random random;
-    private final CustomerReader customerReader;
+    private final Reader<Account> customerReader;
 
-    public RandomAccountReader(Random random, CustomerReader customerReader) {
+    public RandomAccountReader(Random random, Reader<Account> customerReader) {
         this.random = random;
         this.customerReader = customerReader;
     }
@@ -21,7 +19,8 @@ public class RandomAccountReader implements AccountReader{
         return new Account(
                 random.nextLong(100000)+"CBD",
                 random.nextDouble(1000000),
-                customerReader.read()
+                customerReader.read().getCustomers()
         );
     }
+
 }

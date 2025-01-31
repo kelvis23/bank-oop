@@ -1,11 +1,11 @@
 package org.ies.bank.componentes.random;
 
-import org.ies.bank.componentes.CustomerReader;
+import org.ies.bank.componentes.Reader;
 import org.ies.bank.model.Customer;
 
 import java.util.Random;
 
-public class RandomCustomerReader implements CustomerReader {
+public class RandomCustomerReader implements Reader<Customer> {
     private final static String[] NAME = {
             "Pepa", "GORGE", "BOB", "Pocoyo", "Calamardo", ",Elly"
     };
